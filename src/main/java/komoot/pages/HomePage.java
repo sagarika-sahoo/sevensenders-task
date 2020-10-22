@@ -14,6 +14,12 @@ public class HomePage {
     @FindBy(css = ".c-sport-selector")
     WebElement sportSelector;
 
+    @FindBy(css = "input.c-location-search__input")
+    WebElement cityInput;
+
+    @FindBy(css = ".c-location-search__results")
+    WebElement cityAutocompleteList;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
@@ -21,5 +27,13 @@ public class HomePage {
 
     public void selectSport(String sport) {
         sportSelector.findElement(By.cssSelector("[data-value='" + sport + "']")).click();
+    }
+
+    public void chooseLocation(String locationName) {
+        cityInput.click();
+        cityInput.sendKeys(locationName);
+
+        // select the first in autocomplete
+        cityAutocompleteList.findElement(By.tagName("li")).click();
     }
 }

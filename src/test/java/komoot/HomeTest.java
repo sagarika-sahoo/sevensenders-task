@@ -7,9 +7,10 @@ public class HomeTest extends AbstractBaseTest {
 
     @Test(dependsOnGroups = "login")
     public void searchOnHomePage() {
-        this.waitUntilPageLoaded();
+        this.waitForReact();
 
         HomePage homePage = new HomePage(this.getDriver());
-        homePage.selectSport("mtb");
+        homePage.selectSport("jogging");
+        homePage.chooseLocation("Kopenhagener Strasse");
     }
 }

@@ -35,16 +35,16 @@ abstract public class AbstractBaseTest {
     /**
      * Wait for 2 secs, because of React SPA
      */
-    public void waitUntilPageLoaded() {
+    public void waitForReact() {
         // wait for SPA to load
-        waitUntilPageLoaded(2000);
+        waitFor(2000);
     }
 
     /**
      * Wait for time, because of React SPA
      * @param time time to wait
      */
-    public void waitUntilPageLoaded(long time) {
+    public void waitFor(long time) {
         try {
             Thread.sleep(time);
         } catch (InterruptedException ignored) { }

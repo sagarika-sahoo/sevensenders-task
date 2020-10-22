@@ -12,7 +12,7 @@ public class LoginTest extends AbstractBaseTest {
     public void loginTest(String baseUrl) {
         System.out.println(baseUrl);
         this.getDriver().get(baseUrl);
-        this.waitUntilPageLoaded();
+        this.waitForReact();
 
         LandingPage landingPage = new LandingPage(this.getDriver());
         landingPage.clickOnSignup();
