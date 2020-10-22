@@ -5,6 +5,7 @@
         <parameter name="base-url" value="https://www.komoot.com/"/>
         <classes>
             <class name="komoot.LoginTest" />
+            <class name="komoot.HomeTest" />
         </classes>
     </test>
 </suite>
