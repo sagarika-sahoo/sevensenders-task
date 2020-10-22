@@ -16,7 +16,14 @@ abstract public class AbstractBaseTest {
 
     @BeforeSuite
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux64");
+        String platform = System.getProperty("os.name");
+        String driverPath = "drivers/chromedriver_linux64";
+
+        if (platform.contains("Mac")) {
+            driverPath = "drivers/chromedriver_mac64";
+        }
+
+        System.setProperty("webdriver.chrome.driver", driverPath);
 
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
