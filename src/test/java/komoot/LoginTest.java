@@ -7,10 +7,9 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends AbstractBaseTest {
 
-    @Test(groups = { "login" })
-    @Parameters({ "base-url" })
-    public void loginTest(String baseUrl) {
-        System.out.println(baseUrl);
+    @Test(groups = "login")
+    @Parameters({ "base-url", "username", "password" })
+    public void loginTest(String baseUrl, String username, String password) {
         this.getDriver().get(baseUrl);
         this.waitForReact();
 
@@ -18,6 +17,6 @@ public class LoginTest extends AbstractBaseTest {
         landingPage.clickOnSignup();
 
         LoginPage loginPage = new LoginPage(this.getDriver());
-        loginPage.enterLogin("qasaga1991@gmail.com", "Test@123");
+        loginPage.enterLogin(username, password);
     }
 }
