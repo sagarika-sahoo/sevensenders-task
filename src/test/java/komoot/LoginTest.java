@@ -1,22 +1,30 @@
 package komoot;
 
-import komoot.pages.LandingPage;
-import komoot.pages.LoginPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class LoginTest extends AbstractBaseTest {
 
-    @Test(groups = "login")
-    @Parameters({ "base-url", "username", "password" })
-    public void loginTest(String baseUrl, String username, String password) {
-        this.getDriver().get(baseUrl);
-        this.waitForReact();
+    @Test
+    public void loginTest() {
+        performLogin();
 
-        LandingPage landingPage = new LandingPage(this.getDriver());
-        landingPage.clickOnSignup();
+        String titleText = getDriver().findElement(By.tagName("h2")).getText();
+        Assert.assertEquals(titleText, "Find the Perfect Tour");
+    }
 
-        LoginPage loginPage = new LoginPage(this.getDriver());
-        loginPage.enterLogin(username, password);
+    @Test
+    @Parameters({ "username" })
+    public void invalidLoginTest(String username) {
+        performLogin(username, "password");
+
+        String errorText = "Unfortunately we couldn’t log you in. Please verify your email and password and try again.";
+        List<WebElement> list = getDriver().findElements(By.xpath("//*[contains(text(),'" + errorText + "')]"));
+        Assert.assertTrue(list.size() > 0, "Error text not found!");
     }
 }
