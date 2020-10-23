@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit;
 abstract public class AbstractBaseTest {
 
     private WebDriver driver;
-    private String baseUrl = "";
-    private String username = "";
-    private String password = "";
+    private String baseUrl;
+    private String username;
+    private String password;
 
     @BeforeMethod()
     @Parameters({ "base-url", "username", "password" })

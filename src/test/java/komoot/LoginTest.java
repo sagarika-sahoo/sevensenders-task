@@ -11,7 +11,7 @@ import java.util.List;
 public class LoginTest extends AbstractBaseTest {
 
     @Test
-    public void loginTest() {
+    public void validLoginTest() {
         performLogin();
 
         String titleText = getDriver().findElement(By.tagName("h2")).getText();
