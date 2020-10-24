@@ -32,6 +32,7 @@ abstract public class AbstractBaseTest {
 
         if (System.getenv().containsKey("CI")) {
             options.addArguments("--headless");
+            System.setProperty("webdriver.chrome.whitelistedIps", "");
         }
 
         driver = new ChromeDriver(options);
