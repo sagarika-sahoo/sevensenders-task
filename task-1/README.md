@@ -2,6 +2,8 @@
 
 Web automation using selenium, maven and testNG 
 
+Test case document: [pdf](./test-cases.pdf)
+
 ## Prerequisites
 - maven
 - Chrome version 86 (as chromedriver version is 86)
