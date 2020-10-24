@@ -33,6 +33,10 @@ abstract public class AbstractBaseTest {
         if (System.getenv().containsKey("CI")) {
             options.addArguments("--headless");
             System.setProperty("webdriver.chrome.whitelistedIps", "");
+            options.addArguments("--disable-extensions"); // disabling extensions
+            options.addArguments("--disable-gpu"); // applicable to windows os only
+            options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+            options.addArguments("--no-sandbox");
         }
 
         driver = new ChromeDriver(options);
