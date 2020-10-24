@@ -1,4 +1,4 @@
-# Seven Senders Task
+# Seven Senders Task 1 - Web testing
 
 Web automation using selenium, maven and testNG 
 
