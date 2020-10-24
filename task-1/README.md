@@ -12,9 +12,9 @@ Test case document: [pdf](./test-cases.pdf)
 
 - `mvn test` - maven will download dependencies and run the test suite 
 
-## Idea for further enhancements
+## Ideas for further enhancements
 
-- Use [allure-maven](https://github.com/allure-framework/allure-maven) plugin to integrate [Allure reports](http://allure.qatools.ru/)
+- Configure [allure-maven](https://github.com/allure-framework/allure-maven) plugin to integrate [Allure reports](http://allure.qatools.ru/)
 - Screenshot captures on failure.
 - Support for headless options for CI/CD pipeline.
 - Support for cross browsers testing using multiple browser drivers.
