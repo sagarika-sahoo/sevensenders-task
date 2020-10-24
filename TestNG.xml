@@ -3,7 +3,7 @@
 <suite name="SevenSendersTask">
     <test name="Komoot.com" >
         <parameter name="base-url" value="https://www.komoot.com/"/>
-        <parameter name="username" value="qasaga1991@gmail.com"/>
+        <parameter name="email" value="qasaga1991@gmail.com"/>
         <parameter name="password" value="Test@123"/>
         <classes>
             <class name="komoot.LoginTest"/>

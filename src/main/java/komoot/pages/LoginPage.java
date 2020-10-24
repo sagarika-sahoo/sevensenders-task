@@ -1,5 +1,6 @@
 package komoot.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,11 +23,28 @@ public class LoginPage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public void enterLogin(String username, String password) {
-        emailInput.sendKeys(username);
-        submitButton.click();
+    public Boolean isEmailInputValid() {
+        return (Boolean)((JavascriptExecutor) driver)
+                .executeScript("return arguments[0].validity.valid;", emailInput);
+    }
 
+    public void enterEmail(String email) {
+        emailInput.sendKeys(email);
+    }
+
+    public void enterPassword(String password) {
         passwordInput.sendKeys(password);
+    }
+
+    public void clickSubmit() {
         submitButton.click();
+    }
+
+    public void enterLogin(String email, String password) {
+        enterEmail(email);
+        clickSubmit();
+
+        enterPassword(password);
+        clickSubmit();
     }
 }

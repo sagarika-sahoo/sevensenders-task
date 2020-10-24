@@ -12,12 +12,12 @@ abstract public class AbstractBaseTest {
 
     private WebDriver driver;
     private String baseUrl;
-    private String username;
+    private String email;
     private String password;
 
     @BeforeMethod()
-    @Parameters({ "base-url", "username", "password" })
-    public void setup(String baseUrl, String username, String password) {
+    @Parameters({ "base-url", "email", "password" })
+    public void setup(String baseUrl, String email, String password) {
         String platform = System.getProperty("os.name");
         String driverPath = "drivers/chromedriver_linux64";
 
@@ -32,7 +32,7 @@ abstract public class AbstractBaseTest {
         driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 
         this.baseUrl = baseUrl.replaceAll("/$", "");
-        this.username = username;
+        this.email = email;
         this.password = password;
     }
 
@@ -75,22 +75,22 @@ abstract public class AbstractBaseTest {
      * Perform app login using username and password parameters
      */
     public void performLogin() {
-        this.performLogin(username, password);
+        performLogin(email, password);
     }
 
     /**
      * Perform app login
-     * @param username username/email for account
+     * @param email username/email for account
      * @param password password for account
      */
-    public void performLogin(String username, String password) {
+    public void performLogin(String email, String password) {
         this.goTo("/");
         this.waitForReact();
 
-        LandingPage landingPage = new LandingPage(this.getDriver());
+        LandingPage landingPage = new LandingPage(getDriver());
         landingPage.clickOnSignup();
 
-        LoginPage loginPage = new LoginPage(this.getDriver());
-        loginPage.enterLogin(username, password);
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.enterLogin(email, password);
     }
 }
