@@ -1,5 +1,6 @@
 package komoot;
 
+import komoot.pages.HomePage;
 import komoot.pages.LandingPage;
 import komoot.pages.LoginPage;
 import org.openqa.selenium.By;
@@ -44,5 +45,14 @@ public class LoginTest extends AbstractBaseTest {
         String errorText = "Unfortunately we couldn’t log you in. Please verify your email and password and try again.";
         List<WebElement> list = getDriver().findElements(By.xpath("//*[contains(text(),'" + errorText + "')]"));
         Assert.assertTrue(list.size() > 0, "Error text not found!");
+    }
+
+    @Test
+    public void logoutTest() {
+        performLogin();
+
+        HomePage homePage = new HomePage(getDriver());
+        homePage.openUserMenu();
+        homePage.clickLogout();
     }
 }

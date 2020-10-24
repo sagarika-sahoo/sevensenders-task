@@ -18,6 +18,12 @@ public class HomePage {
     @FindBy(css = ".c-location-search__results")
     WebElement cityAutocompleteList;
 
+    @FindBy(css = ".c-topmenu:last-child")
+    WebElement userMenu;
+
+    @FindBy(xpath = "//a[@href='/logout']")
+    WebElement logoutElement;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
@@ -33,5 +39,13 @@ public class HomePage {
 
         // select the first in autocomplete
         cityAutocompleteList.findElement(By.tagName("li")).click();
+    }
+
+    public void openUserMenu() {
+        userMenu.click();
+    }
+
+    public void clickLogout() {
+        logoutElement.click();
     }
 }
