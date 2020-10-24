@@ -15,6 +15,7 @@ public class LoginTest extends AbstractBaseTest {
     @Test
     public void validLoginTest() {
         performLogin();
+        waitForReact();
 
         String titleText = getDriver().findElement(By.tagName("h2")).getText();
         Assert.assertEquals(titleText, "Find the Perfect Tour");
@@ -41,6 +42,7 @@ public class LoginTest extends AbstractBaseTest {
     @Parameters({ "email" })
     public void invalidLoginTest(String email) {
         performLogin(email, "password");
+        waitForReact();
 
         String errorText = "Unfortunately we couldn’t log you in. Please verify your email and password and try again.";
         List<WebElement> list = getDriver().findElements(By.xpath("//*[contains(text(),'" + errorText + "')]"));
@@ -50,6 +52,7 @@ public class LoginTest extends AbstractBaseTest {
     @Test
     public void logoutTest() {
         performLogin();
+        waitForReact();
 
         HomePage homePage = new HomePage(getDriver());
         homePage.openUserMenu();
