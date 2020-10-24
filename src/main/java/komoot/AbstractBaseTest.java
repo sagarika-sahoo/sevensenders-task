@@ -72,14 +72,14 @@ abstract public class AbstractBaseTest {
     }
 
     /**
-     * Perform app login using username and password parameters
+     * Perform app login using username and password testng parameters
      */
     public void performLogin() {
         performLogin(email, password);
     }
 
     /**
-     * Perform app login
+     * Perform app login with different inputs
      * @param email username/email for account
      * @param password password for account
      */
