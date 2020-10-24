@@ -40,7 +40,7 @@ public class LoginPage {
         submitButton.click();
     }
 
-    public void enterLogin(String email, String password) {
+    public void doLogin(String email, String password) {
         enterEmail(email);
         clickSubmit();
 

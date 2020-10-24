@@ -91,6 +91,6 @@ abstract public class AbstractBaseTest {
         landingPage.clickOnSignup();
 
         LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.enterLogin(email, password);
+        loginPage.doLogin(email, password);
     }
 }
