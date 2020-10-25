@@ -50,7 +50,7 @@ abstract public class AbstractBaseTest {
 
     @AfterMethod()
     public void tearDown() {
-        driver.close();
+        driver.quit();
     }
 
     public WebDriver getDriver() {
